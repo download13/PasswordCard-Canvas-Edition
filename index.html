@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<style>
+@font-face
+{
+	font-family:FreeMono;
+	src:url("FreeMono_2009.ttf");
+}
+@font-face
+{
+	font-family:FreeMonoBold;
+	src:url("FreeMonoBold_2009.ttf");
+}
+body
+{
+	padding:0;
+	margin:0;
+}
+#cardCanvas
+{
+	margin:0;
+}
+</style>
+<script src="jsbn.js"></script>
+<script src="jsbn2.js"></script>
+<script src="random.js"></script>
+<script src="canvascard.js"></script>
+<script src="passwordcard.js"></script>
+</head>
+<body>
+<canvas id=cardCanvas width=800 height=530>You're browser doesn't support Canvas. Get a better one.</canvas>
+<table>
+<tr><td><input id=seed size=16 /></td>
+<td><input type=checkbox id=numbersonly />Numbers only area</td>
+<td><input type=checkbox id=symbols />Include Symbols</td>
+<td><input type=checkbox id=highcontrast />Use high-contrast colors</td>
+<td><input type=checkbox id=grid />Grid</td>
+<td><button id=generateBtn>Generate</button></td></tr>
+</table>
+<div><a id=saveLink href=#>Save Image</a></div>
+</body>
+</html>
