@@ -147,12 +147,19 @@ CanvasCard.prototype.getLink=function(cb)
 	}
 	else
 	{
-		var data=this.canvas.toDataURL();
-		data=data.substr(data.indexOf(",")+1).trim();
-		data=atob(data);
-		var builder=new BlobBuilder();
-		builder.append(data);
-		if(!returnLink(builder.getBlob("image/png"))) cb(this.canvas.toDataURL());
+		var dataurl=this.canvas.toDataURL();
+		try
+		{
+			var data=dataurl.substr(dataurl.indexOf(",")+1).trim();
+			data=atob(data);
+			var builder=new BlobBuilder();
+			builder.append(data);
+			if(!returnLink(builder.getBlob("image/png"))) cb(dataurl);
+		}
+		catch(e)
+		{
+			cb(dataurl);
+		}
 	}
 	function returnLink(blob)
 	{
